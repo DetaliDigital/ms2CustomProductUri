@@ -3,3 +3,7 @@ Changelog for ms2PatternProductUri integration into MODx Revolution.
 ms2PatternProductUri 1.0.0
 ====================================
 - First release
+
+ms2PatternProductUri 1.0.1
+====================================
+- add integration AutoRedirector

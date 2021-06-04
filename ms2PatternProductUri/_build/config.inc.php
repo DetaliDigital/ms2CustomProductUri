@@ -11,7 +11,7 @@ if (!defined('MODX_CORE_PATH')) {
 return [
     'name' => 'ms2PatternProductUri',
     'name_lower' => 'ms2patternproducturi',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'release' => 'pl',
     // Install package to site right after build
     'install' => true,

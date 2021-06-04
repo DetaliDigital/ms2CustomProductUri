@@ -49,11 +49,22 @@ class ms2PatternProductUri
             if ($getOldUri != $renderUri && $getOptionPatternUriDebug == 1) {
                 $this->modx->log(1, '<b>ms2PatternProductUri:</b> изменен адрес ресурса <b>ID ' . $resource->get('id') . ' </b>' . $getOldUri . ' на ' . $renderUri);
             }
+
+            if ($getOldUri != $renderUri) {
+
+                $this->modx->addPackage('autoredirector', $this->modx->getOption('autoredirector_core_path', null ,$this->modx->getOption('core_path').'components/autoredirector/').'model/');
+
+                $newRedirect = $this->modx->newObject('arRule');
+                $newRedirect->set('res_id' , $resource->id);
+                $newRedirect->set('context_key', $resource->context_key);
+                $newRedirect->set('uri', $getOldUri);
+                $newRedirect->save();
+
+            }
         }
     }
 
     public function loadControllerJsCss($page) {
-        print_r($page);
         if ($page == 'product_create' || $page == 'product_update') {
             $this->modx->controller->addLastJavascript($this->config['jsUrl'] . 'mgr/ms2patternproducturi.js');
         }
